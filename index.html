@@ -10,7 +10,22 @@
     <main>
       <header>
         <input id="colour-box" type="color" />
-        <select id="select-colour"></select>
+        <select id="select-colour">
+          <option value="monochrome" name="monochrome">Monochrome</option>
+          <option value="monochrome-dark" name="monochrome-dark">
+            Monochrome-dark
+          </option>
+          <option value="monochrome-light" name="monochrome-light">
+            Monochrome-light
+          </option>
+          <option value="analogic" name="analogic">Analogic</option>
+          <option value="complement" name="complement">Complement</option>
+          <option value="analogic-complement" name="analogic-complement">
+            Analogic-complement
+          </option>
+          <option value="triad" name="triad">Triad</option>
+          <option value="quad" name="quad">Quad</option>
+        </select>
         <button id="colour-btn">Get Colour Scheme</button>
       </header>
       <section id="generated-colours"></section>
