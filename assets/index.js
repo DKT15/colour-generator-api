@@ -3,8 +3,6 @@
 const colourEl = document.getElementById("colour-box");
 const selectEl = document.getElementById("select-colour");
 
-const colourHex = document.querySelectorAll("colour-hex");
-
 let coloursArray = [];
 let colourChoice = "";
 
@@ -23,6 +21,7 @@ document.getElementById("colour-btn").addEventListener("click", function () {
 });
 
 //connecting this function with coloursHTML, so each value goes into place so that it can then be rendered.
+
 function getColours() {
   let html = coloursHTML(`#${colourChoice}`);
 
@@ -35,8 +34,8 @@ function getColours() {
 //Formatting how the colours and hex values should look in the HTML.
 function coloursHTML(colour) {
   return `<div class="colour-container">
-                <div class="colour-section" style="background-color:${colour};" onClick="copyText()"></div>
-                <p class="colour-hex" onClick="copyText()">${colour}</p>
+                <div class="colour-section" style="background-color:${colour};"></div>
+                <p class="colour-hex">${colour}</p>
             </div>
             `;
 }
