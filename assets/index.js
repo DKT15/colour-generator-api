@@ -9,7 +9,7 @@ let colourChoice = "";
 //Send users RGB/colour choices to the API, retrieves it and then renders it to the HTML.
 
 document.getElementById("colour-btn").addEventListener("click", function () {
-  colourChoice = colourEl.value.slice(1);
+  colourChoice = colourEl.value.slice(1); // getting access to the hex value
   fetch(
     `https://www.thecolorapi.com/scheme?hex=${colourChoice}&mode=${selectEl.value}&count=4`
   )
