@@ -1,25 +1,28 @@
+//Global variables
+
 const colourEl = document.getElementById("colour-box");
 const selectEl = document.getElementById("select-colour");
+
+const colourHex = document.querySelectorAll("colour-hex");
 
 let coloursArray = [];
 let colourChoice = "";
 
-//Send users RGB/colour choice as well as option to API
+//Send users RGB/colour choices to the API, retrieves it and then renders it to the HTML.
 
 document.getElementById("colour-btn").addEventListener("click", function () {
   colourChoice = colourEl.value.slice(1);
-  console.log(colourChoice);
   fetch(
-    `https://www.thecolorapi.com/scheme?hex=${colourChoice}&mode=${selectEl.value}&count=5`
+    `https://www.thecolorapi.com/scheme?hex=${colourChoice}&mode=${selectEl.value}&count=4`
   )
     .then((res) => res.json())
     .then((data) => {
       coloursArray = data.colors;
       renderColours();
-      console.log(data);
     });
 });
 
+//connecting this function with coloursHTML, so each value goes into place so that it can then be rendered.
 function getColours() {
   let html = coloursHTML(`#${colourChoice}`);
 
@@ -29,14 +32,16 @@ function getColours() {
   return html;
 }
 
+//Formatting how the colours and hex values should look in the HTML.
 function coloursHTML(colour) {
   return `<div class="colour-container">
-                <div id="colour-box" style="background-color:${colour};"></div>
-                <p class="colour-value">${colour}</p>
+                <div class="colour-section" style="background-color:${colour};" onClick="copyText()"></div>
+                <p class="colour-hex" onClick="copyText()">${colour}</p>
             </div>
             `;
 }
 
+//rendering each colour to the innerHTML.
 function renderColours() {
   document.getElementById("generated-colours").innerHTML = getColours();
 }
